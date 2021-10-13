@@ -3,7 +3,7 @@ import { toDate, isToday, isThisWeek, subDays } from 'date-fns'
 export default class Project {
   constructor(name) {
     this.name = name
-    this.task = []
+    this.tasks = []
   }
 
   setName(name) {
@@ -27,7 +27,7 @@ export default class Project {
   }
 
   contains(taskName) {
-    return this.task.some((task) => task.getName() === taskName)
+    return this.tasks.some((task) => task.getName() === taskName)
   }
 
   addTask(newTask) {
@@ -41,7 +41,7 @@ export default class Project {
 
   getTasksToday() {
     return this.tasks.filter((task) => {
-      const taskDate = new Date(task.getDateFormated())
+      const taskDate = new Date(task.getDateFormatted())
       return isToday(toDate(taskDate))
     })
   }

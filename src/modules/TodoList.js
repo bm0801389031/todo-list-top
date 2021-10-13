@@ -40,7 +40,7 @@ export default class TodoList {
   }
 
   updateTodayProject() {
-    this.getProject('Today').task = []
+    this.getProject('Today').tasks = []
 
     this.projects.forEach((project) => {
       if (project.getName() === 'Today' || project.getName() === 'This week')
@@ -55,7 +55,7 @@ export default class TodoList {
   }
 
   updateWeekProject() {
-    this.getProject('This week').task = []
+    this.getProject('This week').tasks = []
 
     this.projects.forEach((project) => {
       if (project.getName() === 'Today' || project.getName() === 'This week')
@@ -68,9 +68,9 @@ export default class TodoList {
       })
     })
 
-    this.getProject('This week').setTask(
+    this.getProject('This week').setTasks(
       this.getProject('This week')
-        .getTask()
+        .getTasks()
         .sort((taskA, taskB) =>
           compareAsc(
             toDate(new Date(taskA.getDateFormatted())),
